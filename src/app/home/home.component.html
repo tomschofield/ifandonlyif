@@ -1,0 +1,144 @@
+<div *ngIf="!isMobile" style="position: relative; min-width: 1000px">
+	<div id="header">
+		<!-- <div id="slogan">"All the news all the time"</div> -->
+		<div id="paper_title">
+			<img style="width:100%" src="assets/banner.png"/>
+
+		</div>
+
+		<div id="date_bar">
+			<div id="volume">{{volume}}  <span style="color: #0000ff; cursor:pointer; font-family: 'Space Mono', monospace;" (click)="togglePause()">{{pausedText}}</span> </div>
+			<div id="date">{{date}}</div>
+			<div id="edition">Torque Editions</div>
+		</div>
+
+	</div>
+	<!-- <div  id="speed_reader"><span >{{currentWord}}</span></div> -->
+	<div id="top_section">
+		<div id="top_left" class="stay_inline  all_columns">
+
+			<div id="top_left_top" >
+				<div class="myh1" style ="width:100%; text-align: center">
+				{{mainHeadline.toUpperCase()}}</div>
+				<div class="five_column" >
+					<div class="padding_wrap " style="padding-right:2%" [innerHTML]="limitBodyText(allText.No1_body,3000)">
+						
+					</div>
+				</div>
+			</div>
+			<br>
+			<div id="top_left_bottom" >
+				<div id="top_left_bottom_left" class="stay_inline all_columns one_column">
+
+					<div class="padding_wrap">
+						<img  class="stay_inline" style="width:70%" src="assets/Shapes-03.png"/>
+						<div style="width:100%"class="stay_inline myh2">
+							<mat-form-field  (keydown)="keyDownFunction($event)" style="width:100%">
+								<!-- <mat-label>Autosize textarea</mat-label> -->
+								<textarea  [(ngModel)]="userHeadline" class="myh2" id="inputForm" matInput
+								cdkTextareaAutosize
+								#autosize="cdkTextareaAutosize"
+								cdkAutosizeMinRows="1"
+								cdkAutosizeMaxRows="5"></textarea>
+							</mat-form-field>
+						</div>
+						<div [innerHTML]="allText.No8_body"></div>
+					</div>
+				</div>
+				<div id="top_left_bottom_mid" class="stay_inline">
+					<div class="padding_wrap">
+						<div class="column_title_image_horiz">
+
+							<div style="width:50%"class="stay_inline myh2">{{No4_headline.toUpperCase()}}</div>
+							<img  class="stay_inline" style="width:50%" src="assets/Shapes-02.png"/>
+
+						</div>
+						<div class="two_column all_columns" [innerHTML]="allText.No4_body">
+
+							
+
+						</div>
+					</div>
+				</div>
+				<div id="top_left_bottom_right" class="stay_inline " >
+					<div class="padding_wrap">
+						<div style="width:100%"class="myh2">{{No3_headline.toUpperCase()}}</div>
+						<div class="two_column all_columns" [innerHTML]="allText.No3_body">
+						
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+		<div id="top_right" style="text-align:center" class="stay_inline one_columns all_columns">
+			<div class="padding_wrap" >
+				<img  class="stay_inline" style="width:70%" src="assets/Shapes-04.png"/>
+				<div style="width:100%; text-align: left "class="stay_inline myh3">{{No2_headline.toUpperCase()}}</div>
+				<div class=" one_columns all_columns" [innerHTML]="allText.No2_body">
+					
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div id="bottom_section">
+		<div id="bottom_left" class="stay_inline">
+			<div class="padding_wrap" >
+				<div style="width:100%; text-align: left"class="myh2">{{No5_headline}}</div>
+				<div class="three_column all_columns" [innerHTML]="allText.No5_body">
+				</div>
+			</div>
+		</div>
+		<div id="bottom_mid" class="stay_inline">
+			<div class="padding_wrap" >
+				<div class="column_title_image_horiz">
+					<!-- <img  class="stay_inline" style="width:50%" src="assets/Shapes-05.png"/> -->
+					<div style="width:100%"class="stay_inline myh2">{{No6_headline}}</div>
+
+
+				</div>
+				<div class="two_column all_columns" [innerHTML]="allText.No6_body">
+
+					
+				</div>
+			</div>
+		</div>
+		<div id="bottom_right" class="stay_inline">
+			<div class="padding_wrap" >
+				<img  class="stay_inline" style="width:70%" src="assets/Shapes-01.png"/>
+				<div style="width:100%; text-align: left "class="stay_inline myh3">{{No7_headline.toUpperCase()}}</div>
+				<div class="one_column all_columns" [innerHTML]="allText.No7_body">
+
+					<!-- {{allText.No7_body}} -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- [style.left.px]="xPos"  -->
+
+	<div id="ticker_tape">
+
+		<div style="color:white" id="inner_tape" [style.left.px]="leftPos" >{{tickerSourceText}}</div>
+	</div>
+</div>
+
+<div *ngIf="isMobile">
+	<img style="width:100%" src="assets/banner.png"/>
+	<div id="date_bar" style="font-size: 3vw">
+		<!-- <div id="volume">VOL CLXIX.... NO. 38,704</div> -->
+		<div id="date">{{date}}</div>
+	</div>
+	<div style="margin-top:5%; line-height: 10vw;font-size: 10vw" class="myh1">CRASH BLOSSOMS</div>
+	<div style="margin-top:5%; line-height: 10vw;font-size: 10vw" class="myh1">{{mainHeadline.toUpperCase()}}</div>
+
+	
+	<div style="margin-top:5%; font-size: 4vw" class="one_column all_columns">
+
+		A low-fidelity but statistically possible headline from the future. This future is synthesised as plausible linguistic snapshots, seen through a cloud of unknowns about what will happen in the un-specified duration between now and then. It has been generated by a recursive neural net (RNN) which knows only the statistical likelihood that one letter will follow another, based on historical, contemporary and user-generated predictions. Each day IF & ONLY IF writes into latent space between the past, present and future.
+
+	</div>
+	<div style="margin-top:5%; line-height: 10vw; font-size: 10vw" class="myh1">VIEW THE WORK ON DESKTOP FOR THE FULL EXPERIENCE</div>
+</div>
